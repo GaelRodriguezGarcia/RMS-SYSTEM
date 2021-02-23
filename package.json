@@ -1,35 +1,24 @@
 {
   "name": "rms-system",
-  "version": "1.0.0",
-  "description": "Records Managment System",
-  "main": "index.js",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./bin/www"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GaelRodriguezGarcia/RMS-SYSTEM.git"
-  },
-  "author": "Gael Rodriguez and Brandon Santizo",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GaelRodriguezGarcia/RMS-SYSTEM/issues"
-  },
-  "homepage": "https://github.com/GaelRodriguezGarcia/RMS-SYSTEM#readme",
   "dependencies": {
     "async": "^3.2.0",
     "bootstrap": "^4.6.0",
     "compression": "^1.7.4",
-    "cookie-parser": "^1.4.5",
-    "debug": "^4.3.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "~4.16.1",
     "express-validator": "^6.9.2",
     "helmet": "^4.4.1",
-    "http-errors": "^1.8.0",
+    "http-errors": "~1.6.3",
     "luxon": "^1.26.0",
     "mongoose": "^5.11.17",
-    "morgan": "^1.10.0",
+    "morgan": "~1.9.1",
     "pug": "^3.0.0"
   }
 }
