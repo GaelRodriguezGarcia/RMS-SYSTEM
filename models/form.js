@@ -36,7 +36,7 @@ const mongoose = require('mongoose');
 
 //officer info schema
     const officerSchema = mongoose.Schema({
-        name:{type:String, required: true},
+        officername:{type:String, required: true},
         serial:{type:String, required: true},
     })
 
