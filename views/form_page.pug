@@ -1,5 +1,3 @@
-extends layout
-
 head
   meta(charset='UTF-8')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
@@ -15,10 +13,9 @@ head
     }
     window.addEventListener('load', addDarkmodeWidget);
   title  West-Mec RMS
-.container
-  nav.navbar.navbar-expand-lg.navbar-light.bg-light
-    .container-fluid
-      a.navbar-brand(href='/') West-Mec RMS
+nav.navbar.navbar-expand-lg.navbar-light.bg-info
+  .container-fluid
+    a.navbar-brand(href='/') West-Mec RMS
 br
 .row
   .col-1-3
@@ -39,28 +36,34 @@ br
     br
     h2 POLICE DEPARTMENT REPORT FORM
     br
-    form
+    form#add_user(action='' method='POST')
       .row
-        .col-1-4
+        .col-1-2
           .input-group.mb-3
             span#inputGroup-sizing-default.input-group-text I.R #
             input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
-        .col-1-4
+        .col-1-2
           .input-group.mb-3
             span#inputGroup-sizing-default.input-group-text Occurance Date
             input.form-control(type='date' aria-label='Text input with dropdown button')
-        .col-1-4
+      .row
+        .col-1-2
           .input-group.mb-3
             span#inputGroup-sizing-default.input-group-text Occurance time
             input.form-control(type='time' aria-label='Text input with dropdown button')
-        .col-1-4
+        .col-1-2
           .input-group.mb-3
             label.input-group-text(for='inputGroupSelect01') Incident type
-            select#inputGroupSelect01.form-select
-              option(selected='') Choose...
-              option(value='1')
-              option(value='2')
-              option(value='3')
+            input.form-control(type='text')
+      .row
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text Code
+            input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text Location
+            input.form-control(type='text' aria-label='Text input with dropdown button')
       .input-group.mb-3
         label.input-group-text(for='inputGroupSelect01') Gender
         select#inputGroupSelect01.form-select
@@ -68,68 +71,106 @@ br
           option#male.Genders(value='1') Male
           option#female.Genders(value='2') Female
           option#unkown.Genders(value='3') Unkown
-      .input-group.mb-3
-        span#inputGroup-sizing-default.input-group-text Location
-        input.form-control(type='text' aria-label='Text input with dropdown button')
-      .input-group.mb-3
-        label.input-group-text(for='inputGroupSelect01') Code
-        select#inputGroupSelect01.form-select
-          option(selected='') Choose...
-          option(value='1')
-          option(value='2')
-          option(value='3')
       .input-group
         span.input-group-text Last, First, and Middle name
         input#lname.form-control.names(type='text' aria-label='Last name' placeholder='Last')
         input#fname.form-control.names(type='text' aria-label='First name' placeholder='First')
         input#mname.form-control.names(type='text' aria-label='Middle name' placeholder='Middle')
       br
-      .input-group.mb-3
-        span#inputGroup-sizing-default.input-group-text SSN or DL #
-        input.form-control(type='text')
-      .input-group.mb-3
-        label.input-group-text(for='inputGroupSelect01') Race
-        select#inputGroupSelect01.form-select
-          option(selected='') Choose...
-          option#white.race(value='1') W
-          option#black.race(value='2') B
-          option#hispanic.race(value='3') H
-          option#indian.race(value='4') I
-          option#asian.race(value='5') A
-          option#unknown.race(value='6') U
-      .input-group.mb-3
-        span#inputGroup-sizing-default.input-group-text Age
-        input.form-control(type='number' max='130' min='0')
-      .input-group.mb-3
-        span#inputGroup-sizing-default.input-group-text Height
-        input.form-control(type='number' max='15' min='0')
-        input.form-control(type='number' max='10' min='0')
-      .input-group.mb-3
-        span#inputGroup-sizing-default.input-group-text Weight
-        input.form-control(type='number' max='800' min='0')
-      .input-group.mb-3
-        label.input-group-text(for='inputGroupSelect01') Hair
-        select#inputGroupSelect01.form-select
-          option(selected='') Choose...
-          option#white.race(value='1')
-          option#black.race(value='2')
-          option#hispanic.race(value='3')
-          option#indian.race(value='4')
-          option#asian.race(value='5')
-          option#unknown.race(value='6')
-      .input-group.mb-3
-        label.input-group-text(for='inputGroupSelect01') Eye
-        select#inputGroupSelect01.form-select
-          option(selected='') Choose...
-          option(value='1')
-          option(value='2')
-          option(value='3')
-          option(value='4')
-          option(value='5')
-          option(value='6')
-      .input-group.mb-3
-        span#inputGroup-sizing-default.input-group-text Address
-        input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
+      .row
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text SSN or DL #
+            input.form-control(type='text')
+        .col-1-2
+          .input-group.mb-3
+            label.input-group-text(for='inputGroupSelect01') Race
+            select#inputGroupSelect01.form-select
+              option(selected='') Choose...
+              option#white.race(value='1') W
+              option#black.race(value='2') B
+              option#hispanic.race(value='3') H
+              option#indian.race(value='4') I
+              option#asian.race(value='5') A
+              option#unknown.race(value='6') U
+      .row
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text Age
+            input.form-control(type='number' max='130' min='0')
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text Height
+            input.form-control(type='number' max='15' min='0')
+            input.form-control(type='number' max='10' min='0')
+      .row
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text Weight
+            input.form-control(type='number' max='800' min='0')
+        .col-1-2
+          .input-group.mb-3
+            label.input-group-text(for='inputGroupSelect01') Hair
+            select#inputGroupSelect01.form-select
+              option(selected='') Choose...
+              option#white.race(value='1') BGE
+              option#black.race(value='2') BLK
+              option#hispanic.race(value='3') BLU
+              option#indian.race(value='4') DBL
+              option#asian.race(value='5') LBL
+              option#unknown.race(value='6') BRZ
+              option#unknown.race(value='7') BRO
+              option#unknown.race(value='8') GLD
+              option#unknown.race(value='9') GRY
+              option#unknown.race(value='10') GRN
+              option#unknown.race(value='11') MAR
+              option#unknown.race(value='12') ORG
+              option#unknown.race(value='13') PNK
+              option#unknown.race(value='14') PLE
+              option#unknown.race(value='15') RED
+              option#unknown.race(value='16') SIL
+              option#unknown.race(value='17') TAN
+              option#unknown.race(value='18') TRQ
+              option#unknown.race(value='19') WHI
+              option#unknown.race(value='20') YEL
+              option#unknown.race(value='21') TEA
+              option#unknown.race(value='22') UNK
+              option#unknown.race(value='23') BLD
+              option#unknown.race(value='24') BLN
+              option#unknown.race(value='25') HAZ
+      .row
+        .col-1-2
+          .input-group.mb-3
+            label.input-group-text(for='inputGroupSelect01') Eye
+            select#inputGroupSelect01.form-select
+              option(selected='') Choose...
+              option#white.race(value='1') BGE
+              option#black.race(value='2') BLK
+              option#hispanic.race(value='3') BLU
+              option#indian.race(value='4') DBL
+              option#asian.race(value='5') LBL
+              option#unknown.race(value='6') BRZ
+              option#unknown.race(value='7') BRO
+              option#unknown.race(value='8') GLD
+              option#unknown.race(value='9') GRY
+              option#unknown.race(value='10') GRN
+              option#unknown.race(value='11') MAR
+              option#unknown.race(value='12') ORG
+              option#unknown.race(value='13') PNK
+              option#unknown.race(value='14') PLE
+              option#unknown.race(value='15') RED
+              option#unknown.race(value='16') SIL
+              option#unknown.race(value='17') TAN
+              option#unknown.race(value='18') TRQ
+              option#unknown.race(value='19') WHI
+              option#unknown.race(value='20') YEL
+              option#unknown.race(value='21') TEA
+              option#unknown.race(value='24') BLN
+              option#unknown.race(value='25') HAZ
+        .col-1-2
+          .input-group.mb-3
+            span#inputGroup-sizing-default.input-group-text Address
+            input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
       .input-group.mb-3
         span#inputGroup-sizing-default.input-group-text Phone
         input.form-control(type='tel' placeholder='123-456-7890' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
@@ -157,12 +198,28 @@ br
         label.input-group-text(for='inputGroupSelect01') Color
         select#inputGroupSelect01.form-select
           option(selected='') Choose...
-          option(value='1')
-          option(value='2')
-          option(value='3')
-          option(value='4')
-          option(value='5')
-          option(value='6')
+          option#white.race(value='1') BGE
+          option#black.race(value='2') BLK
+          option#hispanic.race(value='3') BLU
+          option#indian.race(value='4') DBL
+          option#asian.race(value='5') LBL
+          option#unknown.race(value='6') BRZ
+          option#unknown.race(value='7') BRO
+          option#unknown.race(value='8') GLD
+          option#unknown.race(value='9') GRY
+          option#unknown.race(value='10') GRN
+          option#unknown.race(value='11') MAR
+          option#unknown.race(value='12') ORG
+          option#unknown.race(value='13') PNK
+          option#unknown.race(value='14') PLE
+          option#unknown.race(value='15') RED
+          option#unknown.race(value='16') SIL
+          option#unknown.race(value='17') TAN
+          option#unknown.race(value='18') TRQ
+          option#unknown.race(value='19') WHI
+          option#unknown.race(value='20') YEL
+          option#unknown.race(value='21') TEA
+          option#unknown.race(value='22') UNK
       .input-group.mb-3
         span#inputGroup-sizing-default.input-group-text Year
         input.form-control(type='number' placeholder='YYYY' max='2100' min='1990')
@@ -170,22 +227,75 @@ br
         label.input-group-text(for='inputGroupSelect01') Make
         select#inputGroupSelect01.form-select
           option(selected='') Choose...
-          option(value='1')
-          option(value='2')
-          option(value='3')
-          option(value='4')
-          option(value='5')
-          option(value='6')
+          option(value='1') Ford
+          option(value='2') Honda
+          option(value='3') Toyota
+          option(value='4') Jeep
+          option(value='5') BMW
+          option(value='6') RAM
+          option(value='7') Volkswagon
+          option(value='8') Nissan
+          option(value='10') Hyundai
+          option(value='11') KIA
+          option(value='12') Subaru
+          option(value='13') Mazda
+          option(value='14') Tesla
+          option(value='15') Cadillac
+          option(value='16') Buick
+          option(value='17') Lincoln
+          option(value='18') Dodge
+          option(value='19') Chevrolet
+          option(value='20') Chrysler
+          option(value='21') GMC
+          option(value='22') Ferrari
+          option(value='23') Lamborghini
+          option(value='24') Bentley
+          option(value='25') Maserati
+          option(value='26') Chevrolet Corvette
+          option(value='27') Jaguar
+          option(value='28') Bugatti
+          option(value='29') Lexus
+          option(value='30') Rolls-Royce
+          option(value='31') Acura
+          option(value='32') Mercedes-Benz
+          option(value='33') Volvo
+          option(value='34') Mclaren
+          option(value='35') Mitibushi
+          option(value='36') Infiniti
+          option(value='37') Pontiac
+          option(value='38') Genisis
+          option(value='39') Suzuki
+          option(value='41') Fiat
+          option(value='42') Mini
+          option(value='43') Saturn
+          option(value='44') Mercury
+          option(value='45') Scion
+          option(value='46') Isuzu
+          option(value='47') Hummer
+          option(value='48') Audi
+          option(value='49') Geely
+          option(value='50') MG
+          option(value='51') Jetta
+          option(value='52') DMC
+          option(value='53') IKCO
+          option(value='54') Other
       .input-group.mb-3
-        label.input-group-text(for='inputGroupSelect01') Model
+        span#inputGroup-sizing-default.input-group-text Make
+        input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
+      .input-group.mb-3
+        label.input-group-text(for='inputGroupSelect01') Body Type
         select#inputGroupSelect01.form-select
           option(selected='') Choose...
-          option(value='1')
-          option(value='2')
-          option(value='3')
-          option(value='4')
-          option(value='5')
-          option(value='6')
+          option(value='1') Sedan
+          option(value='2') Coupe
+          option(value='3') Sport
+          option(value='4') Station Wagon
+          option(value='5') Hatchback
+          option(value='6') Convertible
+          option(value='7') SUV
+          option(value='8') MUV
+          option(value='9') Van
+          option(value='10') Pickup Truck
       .input-group.mb-3
         label.input-group-text(for='inputGroupSelect01') Title
         select#inputGroupSelect01.form-select
@@ -196,3 +306,4 @@ br
   .col-1-3
   br
 br
+footer#footer2 All rights reserved to &copy;Brandon And Gael
