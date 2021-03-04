@@ -40,6 +40,8 @@ const mongoose = require('mongoose');
         serial:{type:String, required: true},
     })
 
+    module.exports = mongoose.model('Officer', officerSchema);
+
 //vehicle info schema
     const vehicleSchema = mongoose.Schema({
         plate:{type:String, required: true},
@@ -50,3 +52,5 @@ const mongoose = require('mongoose');
         model:{type:String, required: true},
         title:{type:Boolean, required:true}
     })
+
+    module.exports = mongoose.model('Vehicle', vehicleSchema);
