@@ -2,8 +2,12 @@ var express = require("express")
 var router = express.Router();
 
 // Require controller modules.
-var book_controller = require('../controllers/formcontroller.js');
+var formcontrollers = require('../controllers/formcontroller.js');
 
+
+router.get('/', formcontrollers.index)
+
+// /* GET manage_form page. */
 /* GET manage_form page. */
 router.get('/create/forms', formcontrollers.form_page);
 

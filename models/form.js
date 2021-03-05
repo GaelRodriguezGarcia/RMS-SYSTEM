@@ -31,7 +31,7 @@ const mongoose = require('mongoose');
         summary:{type: String, required:true}
     });
 
-    module.exports = mongoose.model('Narrative', narrativeSchema);
+    module.exports = mongoose.model('Narrative', narritiveSchema);
 
 
 //officer info schema
