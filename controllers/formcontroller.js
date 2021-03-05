@@ -1,13 +1,9 @@
 var form = require('../models/form');
 
 //display the list of the forms
-exports.form_page = function(req, res, next){
-    form.find()
-        .exec(function (err, form_page) {
-            if (err) { return next(err); }
-            //Successful, so render
-            res.render('page_form', { title: 'Form page', form_page: page_form });
-        });
+exports.form_page = function(req, res){
+    
+            res.render('form_page');
 
 };
 
