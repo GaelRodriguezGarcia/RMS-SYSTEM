@@ -13,6 +13,12 @@ exports.form_page = function(req, res){
 
 };
 
+exports.manage_form = function(req, res){
+    
+    res.render('manage_form');
+
+};
+
 
 // //create/add form
 // exports.create =(req, res) =>{
