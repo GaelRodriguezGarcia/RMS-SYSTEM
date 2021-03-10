@@ -19,10 +19,27 @@ exports.manage_form = function(req, res){
 
 };
 
+exports.form_create_get = function(req,res){
+    var resultArray = [];
+    mongo.connect(url, function(err, db){
+      assert.equal(null, err);
+      var cursor = db.collection('forms').find();
+      cursor.forEach(function(doc, err){
+        assert.equal(null, err);
+        result.Array.push(doc);
+      }, function(){
+        db.close;
+        res.render('/catalog', {items: resultArray});
+      });
+  
+    });
+  }
+
+
 
 
 // //create/add form
-// exports.create =(req, res) =>{
+// exports.form_create_post =(req, res) =>{
 //     //validate form
 //     if(req.body){
 //         res.status(400).send({message:"content cannot be empty!"});
@@ -45,7 +62,7 @@ exports.manage_form = function(req, res){
 //         weight:req.body.weight,
 //         hair:req.body.hair,
 //         eye:req.body.eye,
-//         adress:req.body.adress,
+//         address:req.body.adress,
 //         phone:req.body.phone,
 
 //         //narrative 

@@ -6,27 +6,44 @@ var ObjectID = require('mongodb').ObjectID;
 // Require controller modules.
 var formcontrollers = require('../controllers/formcontroller.js');
 
-
+//display index
 router.get('/', formcontrollers.index)
 
-// /* GET manage_form page. */
-/* GET manage_form page. */
+// display form page
 router.get('/create/forms', formcontrollers.form_page);
 
-router.post('manage_form', function(req,res){
+router.post('form_page', function(req,res){
   res.send('form');
 })
 
-router.get('/create/formpage', formcontrollers.manage_form);
+//display manage
+router.get('/create/manageforms', formcontrollers.manage_form);
 
 router.post('manage_form', function(req,res){
   res.send('form page');
 })
 
+//get data
+router.get('/create/getdata', formcontrollers.form_create_get);
 
-//
+router.post('form_create_get', function(req,res){
+  res.send('info');
+})
 
-router.get('/getdata', function(req,res){
+
+
+
+// router.get('/create/insertrdata', formcontrollers.insert_form_data);
+
+// router.post('form_page', function(req, res){
+//   res.send('info');
+// })
+
+
+
+//get data
+
+router.get('create/getdata', function(req,res){
   var resultArray = [];
   mongo.connect(url, function(err, db){
     assert.equal(null, err);
@@ -43,6 +60,7 @@ router.get('/getdata', function(req,res){
 });
 
 
+//insert
 router.post('/insert', function(req, res){
   var item = {
          //incident info 
@@ -86,6 +104,8 @@ router.post('/insert', function(req, res){
   res.redirect('/')
 });
 
+
+//update
 router.post('/update', function(req, res){
   var item = {
     title: req.body.title,
@@ -103,6 +123,8 @@ router.post('/update', function(req, res){
   });
 });
 
+
+//delete
 router.post('/delete', function(req, res){
   var id = req.body.id;
   mongo.connect(url, function(err, db){
