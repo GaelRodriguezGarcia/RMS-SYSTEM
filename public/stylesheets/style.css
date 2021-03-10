@@ -1,5 +1,4 @@
 
-
 #footer {
   position: absolute;
   bottom: 0;
@@ -32,14 +31,11 @@ body
 {
   margin: 0;
   padding: 0;
-  
-  /* make it look decent enough */
-  background-color: #0c0b0b;
 }
 P{
   font-family: 'Inconsolata', monospace;
   font-size: 1.3rem;
-  color: #967BB6;
+  color: #e4b016;
 }
 
 #menuToggle
@@ -67,7 +63,7 @@ P{
 
 #menuToggle a:hover
 {
-  color: #E6E6FA;
+  color: #e4b016;
 }
 
 
