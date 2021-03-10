@@ -21,8 +21,12 @@ block content
             tr
               td Name Goes here
               td
-                a.edit(title='Edit' data-toggle='tooltip')
-                  i.material-icons &#xE254;
-                a.delete(title='Delete' data-toggle='tooltip')
-                  i.material-icons &#xE872;
+                button(type='button')
+                  a.edit(href='' title='Edit' data-toggle='tooltip')
+                    i.material-icons &#xE254;
+                button(type='button')
+                  a.delete(href='' title='Delete' data-toggle='tooltip')
+                    i.material-icons &#xE872;
+
+
   .col-1-3
