@@ -1,5 +1,7 @@
 var express = require("express")
 var router = express.Router();
+var mongo = require('mongodb').MongoClient;
+var ObjectID = require('mongodb').ObjectID;
 
 // Require controller modules.
 var formcontrollers = require('../controllers/formcontroller.js');
@@ -43,9 +45,34 @@ router.get('/getdata', function(req,res){
 
 router.post('/insert', function(req, res){
   var item = {
-    title: req.body.title,
-    content: req.body.content,
-    author: req.body.author
+         //incident info 
+         date:req.body.date,
+         time:req.body.time,
+         type:req.body.type,
+         location:req.body.location,
+         //personal info 
+         name:req.body.name,
+         age:req.body.age,
+         sex:req.body.sex,
+         height:req.body.height,
+         weight:req.body.weight,
+         hair:req.body.hair,
+         eye:req.body.eye,
+         adress:req.body.adress,
+         phone:req.body.phone,
+         //narrative 
+         summary:req.body.summary,
+         //officer info
+         officername:req.body.officername,
+         serial:req.body.serial,
+         //vehicle info 
+         plate:req.body.plate,
+         vin:req.body.vin,
+         color:req.body.color,
+         year:req.body.year,
+         make:req.body.make,
+          model:req.body.model,
+          title:req.body.title
   };
   mongo.connect(url, function(err, db){
     WebAuthnAssertion.equal(null, err);
@@ -60,12 +87,33 @@ router.post('/insert', function(req, res){
 });
 
 router.post('/update', function(req, res){
-  
-})
+  var item = {
+    title: req.body.title,
+    content: req.body.content,
+    author: req.body.author
+  };
+  var id = req.body.id;
+  mongo.connect(url, function(err, db){
+    WebAuthnAssertion.equal(null, err);
+    db.collection('forms').updateOne({"_id:": ObjectID(id)}, {$set: item}, function(err, result){
+      assert.equal(null, err);
+      console.log('item updated');
+      db.close();
+    });
+  });
+});
 
 router.post('/delete', function(req, res){
-  
-})
+  var id = req.body.id;
+  mongo.connect(url, function(err, db){
+    WebAuthnAssertion.equal(null, err);
+    db.collection('forms').deleteOne({"_id:": ObjectID(id)}, function(err, result){
+      assert.equal(null, err);
+      console.log('item deleted');
+      db.close();
+    });
+  });
+});
 
 
 
