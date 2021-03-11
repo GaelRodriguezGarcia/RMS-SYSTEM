@@ -1,3 +1,4 @@
+//- this is the main navbar and what is being extended towards all pages
 meta(name='viewport' content='width=device-width, initial-scale=1.0')
 meta(http-equiv='X-UA-Compatible' content='ie=edge')
 link(rel='stylesheet', href='/stylesheets/style.css')
@@ -9,24 +10,29 @@ script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
 link(rel='preconnect' href='https://fonts.gstatic.com')
 link(href='https://fonts.googleapis.com/css2?family=Inconsolata&display=swap' rel='stylesheet')
+//- the dark mode button
 script(src='https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js')
 script.
   function addDarkmodeWidget() {
   new Darkmode().showWidget();
   }
   window.addEventListener('load', addDarkmodeWidget);
+//- our navbar on upper left
 title  West-Mec RMS
 nav.navbar.navbar-expand-lg.navbar-light.bg-dark
   a.navbar-brand.text-warning(href='/') West-Mec RMS
+//- the side navbar along with what is one the sidebar
 br
 .row
   .col-1-3
     nav(role='navigation')
       #menuToggle
         input(type='checkbox')
+        //- these have to be spans so they look like little sidebar lines
         span
         span
         span
+        //- links to the other pages
         ul#menu
           a(href='/catalog')
             li Info

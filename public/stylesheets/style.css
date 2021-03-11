@@ -54,7 +54,7 @@ P{
 #menuToggle a
 {
   text-decoration: none;
-  color: #0dcaf0;
+  color: #1f58f5;
 
   font-family: 'Inconsolata', monospace;
   
@@ -96,7 +96,7 @@ P{
   position: relative;
   border: .20px solid #f0eaea;
   
-  background: #0dcaf0;
+  background: #0c4dff;
   border-radius: 3px;
   
   z-index: 1;
@@ -126,7 +126,7 @@ P{
 {
   opacity: 1;
   transform: rotate(45deg) translate(-2px, -1px);
-  background: #0dcaf0;
+  background: #0a3ecc;
 }
 
 /*
