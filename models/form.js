@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 
 //incident info schema
     const incidentSchema = mongoose.Schema({
+        ir:{type: String, required: true},
         date:{type: Number, required: true},
         time:{type: Number, required: true},
         type:{type: String, required: true},
+        code:{type: String, required: true},
         location:{type: String, required: true},
         
     })
@@ -13,15 +15,19 @@ const mongoose = require('mongoose');
 
 //personal info schema
     const personalSchema = mongoose.Schema({
-        name:{type: String, required: true},
+        fname:{type: String, required: true},
+        mname:{type: String, required: true},
+        lname:{type: String, required: true},
+        ssn:{type: String, required: true},
+        race:{type: String, required: true},
         age:{type: Number, required: true},
         sex:{type: String, require: true},
         height:{type: Number, required: true},
         weight:{type: Number, required: true},
         hair:{type: String, required: true},
         eye:{type: String, required: true},
-        adress:{type: String, required: false},
-        phone:{type: Number, require: false}
+        address:{type: String, required: false},
+        phone:{type: Number, required: false}
     });
 
     module.exports = mongoose.model('Personal', personalSchema);
@@ -50,6 +56,7 @@ const mongoose = require('mongoose');
         year:{type: Number, required: true},
         make:{type:String, required: true},
         model:{type:String, required: true},
+        body:{type:String, required: true},
         title:{type:Boolean, required:true}
     })
 
