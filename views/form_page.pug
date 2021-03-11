@@ -175,17 +175,20 @@ block content
         .col-1-2
           .input-group.mb-3
             span#inputGroup-sizing-default.input-group-text Serial
-            //- 
+            //- hvaing th e input to be filled with the serial number of the car
             input.form-control(type='text' name='serial' placeholder='#' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
       h3 Vehicle Information
       .input-group.mb-3
         span#inputGroup-sizing-default.input-group-text Plate #
+        //- input for the plate number of the vehichle
         input.form-control(type='text' name='plate' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
       .input-group.mb-3
         span#inputGroup-sizing-default.input-group-text Vin #
+        //- typing of the vin number on vehichle
         input.form-control(type='text' name='vin' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default')
       .input-group.mb-3
         label.input-group-text(for='inputGroupSelect05' name='color') Color
+        //- selecting the color of the vehichle
         select#inputGroupSelect05.form-select
           option(selected='') Choose...
           option#white.race(value='1') BGE
@@ -215,6 +218,7 @@ block content
         input.form-control(type='number' placeholder='YYYY' name='year')
       .input-group.mb-3
         label.input-group-text(for='inputGroupSelect06' name='make') Make
+        //- selection of the make for the car
         select#inputGroupSelect06.form-select
           option(selected='') Choose...
           option(value='1') Ford
@@ -271,9 +275,11 @@ block content
           option(value='54') Other
       .input-group.mb-3
         span#inputGroup-sizing-default.input-group-text Model
+        //- typimng input for the model of the car
         input.form-control(type='text' aria-label='Sizing example input' aria-describedby='inputGroup-sizing-default' name='model')
       .input-group.mb-3
         label.input-group-text(for='inputGroupSelect07' name='body') Body Type
+        //- slecting the type of body for the vhichle 
         select#inputGroupSelect07.form-select
           option(selected='') Choose...
           option(value='1') Sedan
@@ -289,11 +295,13 @@ block content
           option(value='11') Other
       .input-group.mb-3
         label.input-group-text(for='inputGroupSelect08' name='title') Title
+        //- selecting the title of the vehichle
         select#inputGroupSelect08.form-select
           option(selected='') Choose...
           option(value='1') Clean
           option(value='2') Salvage
           option(value='3') Rebuilt
+          //- loveley submit button
       a(href='/catalog/create/insertdata')
         button.btn.btn-primary(type='button') Submit
     .col-1-3
