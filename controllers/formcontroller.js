@@ -22,7 +22,7 @@ exports.manage_form = function(req, res){
 };
 
 //get the data
-exports.form_create_get = function(req,res){
+exports.form_create = function(req,res){
     var resultArray = [];
     mongo.connect(url, function(err, db){
       assert.equal(null, err);
@@ -42,7 +42,7 @@ exports.form_create_get = function(req,res){
 
 
 //create/add form/// //insert
-exports.form_create_post =(req, res) =>{
+exports.form_create =(req, res) =>{
     //validate form
     if(req.body){
         res.status(400).send({message:"content cannot be empty!"});
@@ -99,24 +99,40 @@ exports.form_create_post =(req, res) =>{
     };
 
 
+//update/edit form
+    exports.form_update = function(req, res){
+      var item = {
+        title: req.body.title,
+        content: req.body.content,
+        author: req.body.author
+      };
+      var id = req.body.id;
+      mongo.connect(url, function(err, db){
+        WebAuthnAssertion.equal(null, err);
+        db.collection('forms').updateOne({"_id:": ObjectID(id)}, {$set: item}, function(err, result){
+          assert.equal(null, err);
+          console.log('item updated');
+          db.close();
+        });
+      });
+    }
 
-
-// //edit form
-// exports.find =(req,res) =>{
-//     Formdb.find()
-//     .then(user => {
-//         res.send(form)
-//     })
-//     .catch(err =>{
-//         res.status(500).send({message : err.message ||"error"})
-//     })
-// }
 
 
 // //delete form
+    exports.form_delete = function(req, res){
+      var id = req.body.id;
+      mongo.connect(url, function(err, db){
+        WebAuthnAssertion.equal(null, err);
+        db.collection('forms').deleteOne({"_id:": ObjectID(id)}, function(err, result){
+          assert.equal(null, err);
+          console.log('item deleted');
+          db.close();
+        });
+      });
+    }
 
 
 
-// //create/add form
 
 
