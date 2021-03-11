@@ -1,0 +1,36 @@
+extends layout 
+//- ^brings the navbar to whatever other page
+
+block content
+  .col-1-2.middle-box
+    br
+    .container
+      .table-wrapper
+        .table-title
+          .row
+            .col-sm-8
+              h2 Recent Forms
+              //- button to create a new form, redirects user to the form page
+            .col-sm-4
+              a(href='/catalog/create/forms')
+                button.btn.btn-primary(type='button') Add New Form
+        //- table to display user that have been enlisted in the forms
+        table.table.table-bordered 
+          thead
+            tr
+              th Name
+              th Actions
+          tbody
+            tr
+              td Name Goes here
+              td
+                button(type='button')
+                  a.edit(href='/catalog/create/update' title='Edit' data-toggle='tooltip')
+                    i.material-icons &#xE254;
+                button(type='button')
+                  a.delete(href='/catalog/create/delete' title='Delete' data-toggle='tooltip')
+                    i.material-icons &#xE872;
+      //- editing and deleting buttons that go along the side of the form made 
+
+
+  .col-1-3
